@@ -1814,4 +1814,9 @@ public class BinaryJedisCluster implements BinaryJedisClusterCommands,
       }
     }.runBinary(key);
   }
+
+  public JedisClusterConnectionHandler getConnectionHandler() {
+  	return connectionHandler;
+  }
+
 }

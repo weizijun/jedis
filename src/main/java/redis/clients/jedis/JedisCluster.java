@@ -84,6 +84,12 @@ public class JedisCluster extends BinaryJedisCluster implements JedisClusterComm
       int maxRedirections, final GenericObjectPoolConfig poolConfig) {
     super(jedisClusterNode, connectionTimeout, soTimeout, maxRedirections, poolConfig);
   }
+  
+  public JedisClusterPipeline pipelined() {
+    JedisClusterPipeline pipeline = new JedisClusterPipeline();
+    pipeline.setJedisCluster(this);
+    return pipeline;
+  }
 
   @Override
   public String set(final String key, final String value) {
